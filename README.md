@@ -59,7 +59,7 @@ elif "tinyint(1)" in column_type:
     postgres_type = "BOOLEAN"
 else:
     postgres_type = "TEXT"  # Tipo predeterminado si no hay un mapeo específico
-
+```
 ## Código de Ejemplo
 
 Aquí tienes un ejemplo funcional que muestra cómo usar la librería para migrar todas las tablas de una base de datos MySQL a PostgreSQL:
