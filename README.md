@@ -1,4 +1,4 @@
-# MysqlMigratorPostgreeSQL
+# MysqlMigratorPostgreSQL
 ```python
 pip install mysqlmigratorpostgreesql
 ```
