@@ -1,7 +1,7 @@
 # MysqlMigratorPostgreeSQL
----
+```python
 pip install mysqlmigratorpostgreesql
----
+```
 
 ## Introducción
 
