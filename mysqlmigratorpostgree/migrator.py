@@ -29,17 +29,15 @@ class MysqlMigratorPostgree:
             table_name (str): Nombre de la tabla a migrar.
         """
         try:
-            # Obtener estructura de la tabla en MySQL
+            
             self.mysql_cursor.execute(f"DESCRIBE {table_name}")
             columns = self.mysql_cursor.fetchall()
 
-            # Crear tabla en PostgreSQL
             column_definitions = []
             for column in columns:
                 column_name = column["Field"]
                 column_type = column["Type"]
 
-                # Mapeo de tipos de datos de MySQL a PostgreSQL
                 if "int" in column_type:
                     postgres_type = "INTEGER"
                 elif "varchar" in column_type or "text" in column_type:
@@ -56,7 +54,6 @@ class MysqlMigratorPostgree:
             create_table_sql = f"CREATE TABLE IF NOT EXISTS {table_name} ({', '.join(column_definitions)});"
             self.postgres_cursor.execute(create_table_sql)
 
-            # Migrar datos
             self.mysql_cursor.execute(f"SELECT * FROM {table_name}")
             rows = self.mysql_cursor.fetchall()
 
