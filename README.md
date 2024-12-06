@@ -1,4 +1,4 @@
-# MysqlMigratorPostgree
+# MysqlMigratorPostgreeSQL
 
 ## Introducción
 
