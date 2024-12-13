@@ -14,13 +14,17 @@ class MysqlMigratorPostgree:
         Conecta a MySQL utilizando el módulo `connect_mysql`.
         """
         self.mysql_conn, self.mysql_cursor = connect_mysql(host, port, user, password, database)
+        assert self.mysql_conn is not None, "Conexión a MySQL fallida"
+        assert self.mysql_cursor is not None, "Cursor de MySQL no inicializado"
 
     def connect_postgresql(self, host, port, user, password, database):
         """
         Conecta a PostgreSQL utilizando el módulo `connect_postgresql`.
         """
         self.postgres_conn, self.postgres_cursor = connect_postgresql(host, port, user, password, database)
-
+        assert self.postgres_conn is not None, "Conexión a PostgreSQL fallida"
+        assert self.postgres_cursor is not None, "Cursor de PostgreSQL no inicializado"
+        
     def migrate_table(self, table_name):
         """
         Migra una tabla desde MySQL a PostgreSQL.
